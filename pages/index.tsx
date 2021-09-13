@@ -1,7 +1,8 @@
 import type { InferGetStaticPropsType } from 'next'
 import getAllProducts from '../framework/shopify/product/getAllProducts'
-
-export default function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({
+    products
+}: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <div>
             <pre>{JSON.stringify(products, null, 2)}</pre>
