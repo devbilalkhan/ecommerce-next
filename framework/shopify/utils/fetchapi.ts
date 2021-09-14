@@ -1,12 +1,12 @@
-const URL = 'http://localhost:4000/graphql'
-type FetchParams = {
-    query: string
-}
+import { ApiFetchArgs, ApiFetchResults } from '@common/type/api'
 
-type FetchReturn<T> = { data: T }
+const URL = 'http://localhost:4000/graphql'
 
 //fetch all products
-const fetchApi = async <T>({ query }: FetchParams): Promise<FetchReturn<T>> => {
+const fetchApi = async <T>({
+    url,
+    query
+}: ApiFetchArgs): Promise<ApiFetchResults<T>> => {
     const response = await fetch(URL, {
         method: 'POST',
         headers: {
@@ -19,7 +19,6 @@ const fetchApi = async <T>({ query }: FetchParams): Promise<FetchReturn<T>> => {
 
     const { data, errors } = await response.json()
     if (errors) throw new Error(errors[0].message ?? errors.message)
-    console.log({ data })
 
     return { data }
 }
