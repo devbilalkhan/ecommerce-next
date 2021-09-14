@@ -1,6 +1,7 @@
 import type { InferGetStaticPropsType } from 'next'
 import getAllProducts from '@framework/product/getAllProducts'
 import { getConfig } from '@framework/api/config'
+import { Layout } from '@components/common'
 export default function Home({
     products
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -13,6 +14,7 @@ export default function Home({
     )
 }
 
+Home.Layout = Layout
 export const getStaticProps = async () => {
     const products = await getAllProducts(getConfig())
 
