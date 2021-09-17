@@ -1,0 +1,39 @@
+.root {
+    position: relative;
+    &:nth-child(6n + 1) .productBg {
+        @apply bg-purple-600;
+    }
+    &:nth-child(6n + 3) .productBg {
+        @apply bg-pink;
+    }
+}
+
+.productTag {
+    @apply z-20 absolute top-10 right-10;
+
+    & > * {
+        font-size: 2rem;
+        letter-spacing: 0.4px;
+    }
+}
+.productBg {
+    @apply absolute inset-0 bg-gray-700 bg-repeat-space;
+    &:before {
+        @apply block w-full h-full;
+        content: '';
+        background-image: url('/product-pattern.svg');
+    }
+}
+.productTitle {
+    @apply font-bold leading-10;
+
+    & > span {
+        @apply px-6 py-4;
+        /* The above padding and margin wasnt applied to the second part of the product title and it was overflowing */
+        box-decoration-break: clone;
+    }
+}
+
+.productPrice {
+    @apply px-6 pt-2 pb-4 text-xl font-semibold tracking-wide;
+}

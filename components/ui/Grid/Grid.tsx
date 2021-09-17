@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import s from './Grid.module.css'
-interface GridProps {}
+import cn from 'classnames'
+interface GridProps {
+    children: ReactNode
+    layout?: 'A' | 'B'
+}
 
-const Grid: React.FC<React.ReactNode> = ({ children }) => {
-    return <div className={s.root}>{children}</div>
+const Grid: React.FC<GridProps> = ({ children, layout = 'A' }) => {
+    const rootClassName = cn(s.root, {
+        [s.layoutA]: layout === 'A',
+        [s.layoutB]: layout === 'B'
+    })
+    return <div className={rootClassName}>{children}</div>
 }
 
 export default Grid
