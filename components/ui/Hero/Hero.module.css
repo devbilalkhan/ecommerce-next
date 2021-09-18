@@ -1,0 +1,28 @@
+.root {
+    @apply bg-black text-white py-12;
+}
+
+.hero {
+    @apply grid grid-rows-2;
+    @screen md {
+        @apply grid grid-cols-2;
+    }
+}
+.headline {
+    @apply text-6xl font-bold;
+}
+
+.descAndLink {
+    @apply grid grid-rows-2 gap-6;
+}
+.paragraph {
+    @apply text-4xl;
+    line-height: 2.2rem;
+}
+
+.link {
+    @apply text-lg font-bold underline;
+    &:hover {
+        @apply no-underline;
+    }
+}

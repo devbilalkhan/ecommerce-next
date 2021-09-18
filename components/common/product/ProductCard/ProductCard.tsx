@@ -16,12 +16,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         <h3 className={s.productTitle}>
                             <span>{product.name}</span>
                         </h3>
-                        <span className={s.productPrice}>14 $</span>
+                        <span className={s.productPrice}>
+                            {product.price.value} &nbsp;
+                            {product.price.currencyCode}
+                        </span>
                     </div>
                 </div>
 
                 {product.images && (
                     <Image
+                        className={s.productImage}
                         alt={product.name ?? 'Product image'}
                         src={product.images[0].url ?? placeholderImage}
                         height={540}
